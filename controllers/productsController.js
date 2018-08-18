@@ -1,26 +1,16 @@
-var express = require("express");
+var db_products = require("../db/productsData");
 
-var router = express.Router();
-var products = require("../db/productsData.js");
+module.exports = {
+  getAllProducts: function(req, res) {
+    res.json(db_products);
+  },
+  updateProduct: function(req, res) {
+    
+  },
+  deleteProduct: function(req, res) {
 
-router.get('/', function(req,res) {
-  res.redirect('/products');
-});
+  },
+  createProduct: function(req, res) {
 
-router.get('/products', function(req, res) {
-  res.render('index', {products});
-});
-
-router.post('/products', function(req, res) {
-
-});
-
-router.put('/products', function(req, res) {
-
-});
-
-router.delete('/products', function(req, res) {
-
-});
-
-module.exports = router;
+  }
+};

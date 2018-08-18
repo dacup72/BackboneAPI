@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
 
 // Tells node that we are creating an "express" server
 const app = express();
@@ -14,14 +15,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var exphbs = require("express-handlebars");
-
-// Setting up handlebars middle ware with express
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Pulling in and setting up routes / controller for express
-var routes = require("./controllers/productsController.js");
+// Addes routes
 app.use(routes);
 
 // Starts our server

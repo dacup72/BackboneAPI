@@ -10,9 +10,4 @@ router.use((req, res) =>
   res.sendFile(path.join(__dirname, "../client/build/index.html"))
 );
 
-// redirects root route to /api/products on page load
-router.get('/', function(req,res) {
-  res.redirect('/api/products');
-});
-
 module.exports = router;

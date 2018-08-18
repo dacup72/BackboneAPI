@@ -8,7 +8,7 @@ router.get('/', function(req,res) {
 });
 
 router.get('/products', function(req, res) {
-  res.render('index');
+  res.render('index', {products});
 });
 
 router.post('/products', function(req, res) {

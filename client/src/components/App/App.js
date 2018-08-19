@@ -8,7 +8,6 @@ import Landing from '../Landing';
 import Header from '../Header';
 
 class App extends Component {
-
   render() {
     return (
         <BrowserRouter>

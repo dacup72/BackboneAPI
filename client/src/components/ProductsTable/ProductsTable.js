@@ -5,6 +5,7 @@ import validatePrice from '../../utils/validatePrice';
 import './ProductsTable.css';
 
 import Product from '../Product';
+import AlertMessage from '../AlertMessage';
 
 
 class ProductsTable extends Component {

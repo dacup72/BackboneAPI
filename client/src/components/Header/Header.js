@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        Products Manager
+        <div className="left brand-logo">Products Manager</div>
       </div>
     </nav>
   );

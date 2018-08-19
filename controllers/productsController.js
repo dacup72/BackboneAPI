@@ -24,7 +24,6 @@ module.exports = {
     // Loop through each product in database and delete product with the matching id
     db_products.forEach(function(product, id) {
       if(product.id === parseInt(req.params.id)) {
-        console.log("hello")
         db_products.splice(id, 1);
       };
     });

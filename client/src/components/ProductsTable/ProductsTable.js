@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts, updatePrice, deleteProduct } from '../../actions';
 import validatePrice from '../../utils/validatePrice';
-import './ProductsTable.css';
 
 import Product from '../Product';
-import AlertMessage from '../AlertMessage';
-
 
 class ProductsTable extends Component {
   state = {

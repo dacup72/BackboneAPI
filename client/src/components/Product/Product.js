@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-const Product = ({ id, name, code, price, creator, last_modified, handleClick, handleSubmit, handleCancel, inputValue, showEdit }) => {
+const Product = ({ id, name, code, price, creator, last_modified, handleClick, handleSubmit, handleCancel, handleDelete, inputValue, showEdit }) => {
   if(showEdit) {
     return (
       <tr>
@@ -15,7 +15,7 @@ const Product = ({ id, name, code, price, creator, last_modified, handleClick, h
         <td>{creator}</td>
         <td>{last_modified}</td>
         <td className="buttonsTd">
-          <a className="btn red lighten-3 buttons" id={id}>Delete</a>
+          <a className="btn red lighten-3 buttons" onClick={() => handleDelete(id)}>Delete</a>
         </td>
       </tr>
     );
@@ -28,7 +28,7 @@ const Product = ({ id, name, code, price, creator, last_modified, handleClick, h
         <td>{creator}</td>
         <td>{last_modified}</td>
         <td className="buttonsTd">
-          <a className="btn red lighten-3 buttons" id={id}>Delete</a>
+          <a className="btn red lighten-3 buttons" onClick={() => handleDelete(id)}>Delete</a>
         </td>
       </tr>
     );

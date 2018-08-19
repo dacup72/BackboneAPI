@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts, updatePrice } from '../../actions';
+import { fetchProducts, updatePrice, deleteProduct } from '../../actions';
 import './ProductsTable.css';
 
 import Product from '../Product';
@@ -15,6 +15,10 @@ class ProductsTable extends Component {
   // Calling fetchProducts from actions to retrieve the products data
   componentDidMount() {
     this.props.fetchProducts();
+  }
+
+  handleDeleteClick = id => {
+    this.props.deleteProduct(id);
   }
 
   handlePriceClick = (id) => {
@@ -63,6 +67,7 @@ class ProductsTable extends Component {
             showEdit={true}
             handleSubmit={this.handlePriceSubmit}
             handleCancel={this.handlePriceCancel}
+            handleDelete={this.handleDeleteClick}
           />
         );
       }
@@ -78,6 +83,7 @@ class ProductsTable extends Component {
             handleClick={this.handlePriceClick}
             inputValue={this.state.inputValue}
             showEdit={false}
+            handleDelete={this.handleDeleteClick}
           />
         );
       }
@@ -110,4 +116,4 @@ function mapStateToProps({ products }) {
   return { products };
 }
 
-export default connect(mapStateToProps, { fetchProducts, updatePrice })(ProductsTable);
+export default connect(mapStateToProps, { fetchProducts, updatePrice, deleteProduct })(ProductsTable);

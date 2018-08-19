@@ -8,8 +8,13 @@ export const fetchProducts = () => async dispatch => {
 };
 
 export const updatePrice = (value, id) => async dispatch => {
-  console.log("value: ", value)
   const res = await axios.put('/api/products/' + id, {value});
+
+  dispatch({ type: FETCH_PRODUCTS, payload: res.data });
+};
+
+export const deleteProduct = id => async dispatch => {
+  const res = await axios.delete('/api/products/' + id);
 
   dispatch({ type: FETCH_PRODUCTS, payload: res.data });
 };

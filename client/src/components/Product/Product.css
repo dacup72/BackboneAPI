@@ -3,5 +3,9 @@
 }
 
 .cancelBtn {
-  margin-left: 5%;
+  margin-left: 8%;
+}
+
+.priceTd {
+  width: 25%;
 }

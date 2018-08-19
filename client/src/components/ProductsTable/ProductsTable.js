@@ -18,17 +18,17 @@ class ProductsTable extends Component {
   }
 
   handlePriceClick = (id) => {
-    this.setState({
-      showEditId: id,
-    });
-    console.log(this.state)
+    if (this.state.showEditId === Infinity) {
+      this.setState({
+        showEditId: id,
+      });
+    }
   };
 
   handlePriceUpdate = event => {
     this.setState({
       inputValue: event.target.value
     });
-    console.log(this.state)
   }
 
   handlePriceSubmit = id => {
@@ -36,6 +36,13 @@ class ProductsTable extends Component {
     this.setState({
       inputValue: "",
       showEditId: Infinity
+    });
+  }
+
+  handlePriceCancel = () => {
+    this.setState({
+      showEditId: Infinity,
+      inputValue: ""
     });
   }
 
@@ -55,9 +62,10 @@ class ProductsTable extends Component {
             inputValue={this.state.inputValue}
             showEdit={true}
             handleSubmit={this.handlePriceSubmit}
+            handleCancel={this.handlePriceCancel}
           />
         );
-      } 
+      }
       else {
         return (
           <Product

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import Product from '../Product';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../actions';
+import './ProductsTable.css';
+
+import Product from '../Product';
+
 
 class ProductsTable extends Component {
   // Calling fetchProducts from actions to retrieve the products data
@@ -13,20 +16,20 @@ class ProductsTable extends Component {
   renderProducts() {
     return this.props.products.map(({ name, code, price, creator, last_modified }) => {
       return (
-        <Product
-          name={name}
-          code={code}
-          price={price}
-          creator={creator}
-          last_modified={last_modified}
-        />
+          <Product
+            name={name}
+            code={code}
+            price={price}
+            creator={creator}
+            last_modified={last_modified}
+          />
       );
     });
   }
 
   render() {
     return (
-      <table>
+      <table className="striped">
         <thead>
           <tr>
             <th>PRODUCT</th>
@@ -37,7 +40,7 @@ class ProductsTable extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.renderProducts()}
+        {this.renderProducts()}
         </tbody>
       </table>
     );

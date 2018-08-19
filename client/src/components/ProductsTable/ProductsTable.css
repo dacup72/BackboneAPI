@@ -1,0 +1,13 @@
+/* tbody {
+  position: relative;
+}
+tbody:hover{
+  opacity:0.5;
+}
+tbody:hover input {
+  display: block;
+}
+tbody span input {
+  
+  display:none;
+} */

@@ -4,7 +4,8 @@ import ProductsTable from '../ProductsTable';
 const Landing = () => {
   return (
     <div>
-      <div>List of products to manage</div>
+      <div className="center">-Double click price to edit-</div>
+      <br/>
       <ProductsTable />
     </div>
   )

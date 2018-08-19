@@ -8,8 +8,8 @@ import Product from '../Product';
 
 class ProductsTable extends Component {
   state = {
-    showEdit: false,
-    inputValue: 0
+    showEditId: Infinity,
+    inputValue: ""
   }
 
   // Calling fetchProducts from actions to retrieve the products data
@@ -17,22 +17,33 @@ class ProductsTable extends Component {
     this.props.fetchProducts();
   }
 
-  handlePriceClick = () => {
+  handlePriceClick = (id) => {
     this.setState({
-      showEdit: true,
+      showEditId: id,
     });
     console.log(this.state)
   };
 
   handlePriceUpdate = event => {
-    //this.props.updatePrice(value, id);
-    
+    this.setState({
+      inputValue: event.target.value
+    });
+    console.log(this.state)
+  }
+
+  handlePriceSubmit = id => {
+    this.props.updatePrice(this.state.inputValue, id);
+    this.setState({
+      inputValue: "",
+      showEditId: Infinity
+    });
   }
 
   // Method for mapping through products returned by the reducers and rendering each in JSX
   renderProducts() {
     return this.props.products.map(({ id, name, code, price, creator, last_modified }) => {
-      return (
+      if (this.state.showEditId === id) {
+        return (
           <Product
             name={name}
             code={code}
@@ -40,12 +51,29 @@ class ProductsTable extends Component {
             creator={creator}
             last_modified={last_modified}
             id={id}
-            handlePriceClick={this.handlePriceClick}
-            handlePriceUpdate={this.handlePriceUpdate}
-            showEdit={this.state.showEdit}
+            handleClick={this.handlePriceUpdate}
             inputValue={this.state.inputValue}
+            showEdit={true}
+            handleSubmit={this.handlePriceSubmit}
           />
-      );
+        );
+      } 
+      else {
+        return (
+          <Product
+            name={name}
+            code={code}
+            price={price}
+            creator={creator}
+            last_modified={last_modified}
+            id={id}
+            handleClick={this.handlePriceClick}
+            inputValue={this.state.inputValue}
+            showEdit={false}
+          />
+        );
+      }
+
     });
   }
 
@@ -62,7 +90,7 @@ class ProductsTable extends Component {
           </tr>
         </thead>
         <tbody>
-        {this.renderProducts()}
+          {this.renderProducts()}
         </tbody>
       </table>
     );

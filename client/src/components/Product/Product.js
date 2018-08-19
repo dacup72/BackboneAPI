@@ -1,12 +1,16 @@
 import React from 'react';
 import './Product.css';
 
-const Product = ({ id, name, code, price, creator, last_modified, handlePriceClick, handlePriceUpdate, showEdit }) => {
+const Product = ({ id, name, code, price, creator, last_modified, handleClick, handleSubmit, handleCancel, inputValue, showEdit }) => {
   if(showEdit) {
     return (
       <tr>
         <td>{name}</td>
-        <td><input type="text" value="me" onChange={() => handlePriceUpdate(this.value, id)}/></td>
+        <td>
+          <input type="text" value={inputValue} placeholder={price} onChange={handleClick}/>
+          <span className="btn" onClick={() => handleSubmit(id)}>Submit Price</span>
+          <span className="btn red lighten-3 cancelBtn" onClick={() => handleCancel(id)}>cancel</span>
+        </td>
         <td>{code}</td>
         <td>{creator}</td>
         <td>{last_modified}</td>
@@ -19,7 +23,7 @@ const Product = ({ id, name, code, price, creator, last_modified, handlePriceCli
     return (
       <tr>
         <td>{name}</td>
-        <td onClick={handlePriceClick}>{price}</td>
+        <td onClick={() => handleClick(id)}>{price}</td>
         <td>{code}</td>
         <td>{creator}</td>
         <td>{last_modified}</td>

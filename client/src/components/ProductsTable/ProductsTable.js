@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts, updatePrice, deleteProduct } from '../../actions';
+import validatePrice from '../../utils/validatePrice';
 import './ProductsTable.css';
 
 import Product from '../Product';
@@ -24,7 +25,7 @@ class ProductsTable extends Component {
   handlePriceClick = (id) => {
     if (this.state.showEditId === Infinity) {
       this.setState({
-        showEditId: id,
+        showEditId: id
       });
     }
   };
@@ -36,11 +37,18 @@ class ProductsTable extends Component {
   }
 
   handlePriceSubmit = id => {
-    this.props.updatePrice(this.state.inputValue, id);
-    this.setState({
-      inputValue: "",
-      showEditId: Infinity
-    });
+    const invalidMessage = validatePrice(this.state.inputValue);
+
+    if (!invalidMessage) {
+      this.props.updatePrice(this.state.inputValue, id);
+      this.setState({
+        inputValue: "",
+        showEditId: Infinity
+      });
+    }
+    else {
+      alert(invalidMessage);
+    }
   }
 
   handlePriceCancel = () => {

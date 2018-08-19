@@ -1,13 +1,16 @@
 import React from 'react';
 import './Product.css';
 
-const Product = ({ id, name, code, price, creator, last_modified, handleClick, handleSubmit, handleCancel, handleDelete, inputValue, showEdit }) => {
+const Product = ({ id, name, code, price, creator, last_modified, handleClick, handleSubmit, handleCancel, handleDelete, inputValue, showEdit, inputPlaceholder }) => {
+  const placeholderValue = inputPlaceholder ? inputPlaceholder : price;
+  console.log("=====: ", inputPlaceholder)
+  
   if(showEdit) {
     return (
       <tr>
         <td>{name}</td>
         <td className="priceTd">
-          <input type="text" value={inputValue} placeholder={price} onChange={handleClick}/>
+          <input type="text" value={inputValue} placeholder={placeholderValue} onChange={handleClick}/>
           <span className="btn" onClick={() => handleSubmit(id)}>Submit Price</span>
           <span className="btn red lighten-3 cancelBtn" onClick={() => handleCancel(id)}>cancel</span>
         </td>

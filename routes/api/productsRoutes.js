@@ -5,8 +5,7 @@ var productsController = require("../../controllers/productsController");
 
 // Matches with /api/products
 router.route("/")
-  .get(productsController.getAllProducts)
-  .post(productsController.createProduct);
+  .get(productsController.getAllProducts);
 
 // Matches with /api/products/:id
 router.route("/:id")

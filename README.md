@@ -1,6 +1,6 @@
 # Backbone API
 
-Backbone API is a simple UI allowing the userer to display and edit nonpersistent data on a fullstack React / Redux javascript application.
+Backbone API is a simple UI allowing the user to display and edit nonpersistent data on a fullstack React / Redux javascript application.
 
 
 ## Installing
@@ -22,8 +22,33 @@ A step by step series of examples that tell you how to get a development environ
 * npm run dev
 ```
 
-* Photo examples of application setup and running
 
+## Photo examples of application setup and running
+
+* Clone the repo from git hub ()
+
+![Shot1](./readmeImages/githubClone.png)
+
+![Shot2](./readmeImages/githubClone.png)
+
+
+* Change directory into the cloned folder
+
+![Shot3](./readmeImages/changeDirectory.png)
+
+
+* Install npm packages with ( $ nom run devinstall )
+
+![Shot2](./readmeImages/devinstall.png)
+
+![Shot2](./readmeImages/devinstallComplete.png)
+
+
+* Start application with ( $ npm run dev )
+
+![Shot2](./readmeImages/runDev.png)
+
+![Shot2](./readmeImages/runDevComplete.png)
 
 
 ## Built With

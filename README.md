@@ -39,16 +39,21 @@ A step by step series of examples that tell you how to get a development environ
 
 * Install npm packages with ( $ nom run devinstall )
 
-![Shot2](./readmeImages/devinstall.png)
+![Shot4](./readmeImages/devinstall.png)
 
-![Shot2](./readmeImages/devinstallComplete.png)
+![Shot5](./readmeImages/devinstallComplete.png)
 
 
 * Start application with ( $ npm run dev )
 
-![Shot2](./readmeImages/runDev.png)
+![Shot6](./readmeImages/runDev.png)
 
-![Shot2](./readmeImages/runDevComplete.png)
+![Shot7](./readmeImages/runDevComplete.png)
+
+
+* Application running on your default web browser
+
+![Shot8](./readmeImages/application.png)
 
 
 ## Built With

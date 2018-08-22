@@ -37,7 +37,7 @@ A step by step series of examples that tell you how to get a development environ
 ![Shot3](./readmeImages/changeDirectory.png)
 
 
-* Install npm packages with ( $ nom run devinstall )
+* Install npm packages with ( $ npm run devinstall )
 
 ![Shot4](./readmeImages/devinstall.png)
 
